@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    mode: process.env.NODE_ENV,
+    // mode: process.env.NODE_ENV,
+    mode: 'development',
 
     entry: './src/index.js',
 
@@ -44,7 +45,7 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Development',
+            // title: 'development',
             template: './src/index.html'
         }),
         new MiniCssExtractPlugin(),
