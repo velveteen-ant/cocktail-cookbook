@@ -1,6 +1,9 @@
 const express = require('express');
-const app = express();
 const path = require('path');
+
+const app = express();
+
+
 
 
 if (process.env.NODE_ENV === 'production'){
@@ -8,7 +11,7 @@ if (process.env.NODE_ENV === 'production'){
   app.use('/build', express.static(path.join(__dirname, '../build')));
   // serve index.html on the route '/'
   app.get('/', (req, res) => {
-    return res.status(200).sendFile(path.join(__dirname, '../src/index.html'));
+    return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
   });
 }
 
