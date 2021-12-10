@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -11,6 +10,7 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, '/build'),
+        // publicPath: '/build',
         filename: 'bundle.js'
     }, 
 
@@ -18,46 +18,43 @@ module.exports = {
         rules: [
             {
                 test: /\.jsx?/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env', '@babel/preset-react']
+                exclude: /node_modules|bower_components/,
+                use : {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/env', '@babel/react']
+                    },
                 },
             },
             {
-                test: /\.s?css/,
+                test: /.(css|scss)$/,
                 exclude: /node_modules/,
                 use: [
                   'style-loader', 'css-loader', 'sass-loader'
                 ],
               },
-            // {
-            //     test: /\.scss$/,
-            //     use: [
-            //         MiniCssExtractPlugin.loader,
-            //         'css-loader',
-            //         'sass-loader',
-            //     ],
-            // }
-        ]
-
+        ],
     },
 
     plugins: [
         new HtmlWebpackPlugin({
-            // title: 'development',
+            title: 'development',
             template: './client/index.html'
         }),
-        // new MiniCssExtractPlugin(),
     ],
 
     devServer: {
         static: {
-            publicPath: '/build',
-            directory: path.resolve(__dirname, 'build'),
+            // publicPath: '/build',
+            publicPath: '/',
+            directory: path.join(__dirname, 'build'),
         },
-        proxy: {
-            '/api': 'http://localhost:3000'
-        }
-    }
+        // proxy: {
+        //     '/api': 'http://localhost:3000'
+        // },
+    }, 
+
+    // resolve: {
+    //     extensions: ['.js', '.jsx']
+    //   },
 };

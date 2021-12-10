@@ -1,5 +1,12 @@
-import React from "react";
+import React from 'react';
+// import ReactDom from 'react-dom';
 
-export default function App() {
-  return <h1>Hello Banana</h1>;
+const App = () => {
+  return (
+    <div>
+      <h1>Howduuuy</h1>
+    </div>
+  )
 }
+
+export default App;

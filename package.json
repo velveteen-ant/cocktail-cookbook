@@ -4,9 +4,9 @@
   "description": "Codesmith Solo Project",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production nodemon server/server.js",
+    "start": "NODE_ENV=production node server/server.js",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development nodemon server/server.js & NODE_ENV=development webpack serve"
+    "dev": "NODE_ENV=development webpack serve --open"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,6 @@
   "homepage": "https://github.com/velveteen-ant/cocktail-cookbook#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "nodemon": "^2.0.15",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -30,10 +29,11 @@
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "babel-loader": "^8.2.3",
+    "concurrently": "^6.4.0",
     "css-loader": "^6.5.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.4.5",
+    "nodemon": "^2.0.15",
     "sass": "^1.44.0",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
