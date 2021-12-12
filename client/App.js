@@ -3,13 +3,14 @@ import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Button from './components/Button';
 import Footer from './components/Footer';
+import Drinks from './components/Drinks';
 
 const App = () => {
   return (
     <div>
       <Header />
-      <h1>Howdy</h1>
-      <Button text='hiya' />
+      <Drinks />
+      {/* <Button text='hiya' /> */}
       <Footer />
     </div>
   );
