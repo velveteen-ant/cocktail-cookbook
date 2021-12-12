@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
 
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -46,24 +45,30 @@ body {
 
 
 .header {
-  overflow: hidden;
+  /* overflow: hidden; */
   display: grid;
   grid-template-areas: 'logo-nav';
   background-color: wheat;
-  padding: 10px 10px;
-  width: 100%;
+  /* padding: 10px 10px;
+  width: 100%; */
 }
 
 .nav {
   grid-area: nav;
   display: grid; 
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(5, auto);
   align-items: center; 
   justify-items: center;
 }
 
+a:link { text-decoration: none; color: black}
+a:visited { text-decoration: none; color: black}
+a:hover { text-decoration: none; color:rgb(66, 115, 148); transition-duration: 0.3s;}
+a:active { text-decoration: none; color:white; transition-duration: 0.3s; }
+
+
 .logo {
-  max-width: 10%;
-  height: auto;
+  height: 80px;
+  width: auto;
   border-radius: 50%;
 }
