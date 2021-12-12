@@ -71,11 +71,9 @@ drinkController.addDrink = (req, res, next) => {
 // }
 
 drinkController.deleteDrink = (req, res, next) => {
-
-    const name = req.params.id;
-
-    const id = [name]
-
+    const name = req.params.name;
+    // console.log(req.params)
+    const id = [name];
     const text = 'DELETE FROM cocktails WHERE name = ($1);'
 
     db.query(text, id)
