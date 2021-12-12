@@ -1,9 +1,69 @@
-/* body {
-    background: rgb(230, 230, 154);
-} */
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
 body {
-    background: lightblue;
+    background: whitesmoke;
+    font-family: 'Readex Pro', sans-serif;
 }
 
 
+  .btn {
+    display: inline-block;
+    background: rgb(148, 66, 148);
+    color: #fff;
+    opacity: 0.6;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 6px;
+    /* cursor: pointer; */
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+    transition-duration: 0.3s;
+  }
+
+  .btn:hover {
+      opacity: 1;
+      cursor: pointer;
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
+  .btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 3px 15px -2px;
+  }
+
+
+.header {
+  overflow: hidden;
+  display: grid;
+  grid-template-areas: 'logo-nav';
+  background-color: wheat;
+  padding: 10px 10px;
+  width: 100%;
+}
+
+.nav {
+  grid-area: nav;
+  display: grid; 
+  grid-template-columns: repeat(4, auto);
+  align-items: center; 
+  justify-items: center;
+}
+
+.logo {
+  max-width: 10%;
+  height: auto;
+  border-radius: 50%;
+}

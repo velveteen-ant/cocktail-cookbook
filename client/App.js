@@ -1,10 +1,17 @@
 import React from 'react';
-// import ReactDom from 'react-dom';
+import { useEffect, useState } from 'react';
+import Header from './components/Header'
+import Button from './components/Button'
+
+
 
 const App = () => {
+
   return (
     <div>
-      <h1>Howduuuy</h1>
+    <Header />
+      <h1>Howdy</h1>
+      <Button text='hiya'/>
     </div>
   )
 }
