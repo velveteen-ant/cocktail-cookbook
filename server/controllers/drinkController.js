@@ -48,10 +48,11 @@ drinkController.addDrink = (req, res, next) => {
     ];
 
     const text = 'INSERT INTO cocktails (name, date, rating, comment) VALUES ($1, $2, $3, $4) RETURNING *;'
+    // const text = 'INSERT INTO cocktails (name, date, rating, comment) VALUES ($1, $2, $3, $4);'
 
     db.query(text, id)
     .then((data) => {
-        res.locals.drinks = data.rows;
+        res.locals.drinks = data.rows[0];
         return next();
     })
     .catch((err) => {

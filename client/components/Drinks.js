@@ -1,7 +1,8 @@
 import React from 'react';
 import Drink from './Drink';
+import Button from './Button';
 
-const Drinks = ({ drinks, onDelete }) => {
+const Drinks = ({ drinks, onDelete, onAdd, showAdd }) => {
   return (
     <>
       <h1 className='mainHeader'>HOWDY!</h1>
@@ -11,9 +12,11 @@ const Drinks = ({ drinks, onDelete }) => {
         enjoyed) and find new ones to try. Let's get sippin'!
       </p>
       <div className='container'>
-      {drinks.map((drink) => (
+      <Button color={showAdd ? 'grey' : '#944294'} text={showAdd ? 'Close' : 'Add Drink'} onClick={onAdd} />
+
+      {drinks.map((drink, index) => (
         <Drink
-          key={drink.cocktail_id}
+          key={index}
           drink={drink}
           onDelete={onDelete}
         />

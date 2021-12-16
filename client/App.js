@@ -9,6 +9,7 @@ import AddDrink from './components/AddDrink';
 
 const App = () => {
   const [drinks, setDrinks] = useState([]);
+  const [showAddDrink, setShowAddDrink] = useState(false);
   // useEffect(() => {
   //   const getDrinks = async () => {
   //     const drinksFromServer = await fetchDrinks();
@@ -59,13 +60,20 @@ const App = () => {
   return (
     <div>
       <Header />
-      <Drinks drinks={drinks} onDelete={deleteDrink} />
+
+      <Drinks drinks={drinks} onDelete={deleteDrink} onAdd={() => setShowAddDrink(!showAddDrink)} showAdd={showAddDrink}/>
+
 
       {/* {drinks.length > 0 ? (
-        <Drinks drinks={drinks} onDelete={deleteDrink} />
+        <Drinks drinks={drinks} onDelete={deleteDrink} onAdd={() => setShowAddDrink(!showAddDrink)} showAdd={showAddDrink}/>
       ) : (
         'No Drinks!'
       )} */}
+      
+      {showAddDrink && (
+        <AddDrink onAdd={addDrink} />
+      )}
+
 
       <Footer />
     </div>
