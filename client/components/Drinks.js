@@ -1,22 +1,28 @@
 import React from 'react';
+import Drink from './Drink';
 
-const Drinks = ({ drinks }) => {
+const Drinks = ({ drinks, onDelete }) => {
   return (
-    <div>
-    <h1 className='mainHeader'>HOWDY!</h1>
-    <p className='intro'>Welcome to Cocktail Cookbook -- <br/> a place for you to store your personal thoughts and opinions of beverages you've enjoyed (or not quite enjoyed) and find new ones to try. Let's get sippin'!</p>
-    {/* <p className='intro'>WELCOME TO COCKTAIL COOKBOOK -- <br/> A PLACE FOR YOU TO STORE ALL YOUR PERSONAL THOUGHTS AND OPINIONS OF BEVERAGES YOU'VE ENJOYED (OR NOT QUITE ENJOYED) AND FIND NEW ONES TO TRY. LET'S GET SIPPIN'!</p> */}
-      {/* {drinks.map((drink) => (
+    <>
+      <h1 className='mainHeader'>HOWDY!</h1>
+      <p className='intro'>
+        Welcome to Cocktail Cookbook -- <br /> a place for you to store your
+        personal thoughts and opinions of beverages you've enjoyed (or not quite
+        enjoyed) and find new ones to try. Let's get sippin'!
+      </p>
+      <div className='container'>
+      {drinks.map((drink) => (
         <Drink
-          key={drink.key}
+          key={drink.cocktail_id}
           drink={drink}
+          onDelete={onDelete}
         />
-      ))} */}
-    </div>
+      ))}
+      </div>
+    </>
   );
 };
 
 export default Drinks;
-
 
 //component that will make fetch request for drink cards

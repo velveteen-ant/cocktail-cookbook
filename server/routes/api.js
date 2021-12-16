@@ -2,7 +2,7 @@ const express = require('express');
 const drinkController = require('../controllers/drinkController');
 const router = express.Router();
 
-router.get('/', drinksController.getDrinks, (req, res) =>
+router.get('/', drinkController.getDrinks, (req, res) =>
   res.status(200).json(res.locals.drinks)
 );
 
@@ -10,7 +10,7 @@ router.get('/:name', drinkController.getSpecificDrink, (req, res) =>
   res.status(200).json(res.locals.drink)
 );
 
-router.post('/', drinksController.addDrink, (req, res) =>
+router.post('/', drinkController.addDrink, (req, res) =>
   res.status(200).json(res.locals.drinks)
 );
 
@@ -18,7 +18,7 @@ router.post('/', drinksController.addDrink, (req, res) =>
 //   res.status(200).json(res.locals.dirnk)
 // );
 
-router.delete('/:name', drinkController.deleteDrink, (req, res) =>
+router.delete('/:id', drinkController.deleteDrink, (req, res) =>
   res.status(200).send('Deleted')
 );
 

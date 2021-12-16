@@ -4,13 +4,69 @@ import Header from './components/Header';
 import Button from './components/Button';
 import Footer from './components/Footer';
 import Drinks from './components/Drinks';
+import Drink from './components/Drink';
+import AddDrink from './components/AddDrink';
 
 const App = () => {
+  const [drinks, setDrinks] = useState([]);
+  // useEffect(() => {
+  //   const getDrinks = async () => {
+  //     const drinksFromServer = await fetchDrinks();
+  //     setDrinks(drinksFromServer);
+  //   };
+  //   getDrinks();
+  // }, []);
+
+  useEffect(() => {
+    fetchDrinks();
+  }, []);
+
+  //fetch drinks
+  
+  const fetchDrinks = async () => {
+    const res = await fetch('http://localhost:3000/api');
+    // console.log(res); 
+    const data = await res.json();
+    setDrinks(data);
+  };
+
+  //delete drink
+  const deleteDrink = async (cocktail_id) => {
+    // console.log(cocktail_id);
+    const res = await fetch(`http://localhost:3000/api/${cocktail_id}`, {
+      method: 'DELETE',
+    });
+    res.status === 200
+    ? setDrinks(drinks.filter((drink) => drink.cocktail_id !== cocktail_id))
+    : alert('Error deleting drink');
+    // setDrinks(data);
+  };
+
+  //add drink
+  const addDrink = async (drink) => {
+    const res = await fetch('http://localhost:3000/api', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(drink)
+    });
+    const data = await res.json();
+    setDrinks([...drinks, data]);
+  };
+
+
   return (
     <div>
       <Header />
-      <Drinks />
-      {/* <Button text='hiya' /> */}
+      <Drinks drinks={drinks} onDelete={deleteDrink} />
+
+      {/* {drinks.length > 0 ? (
+        <Drinks drinks={drinks} onDelete={deleteDrink} />
+      ) : (
+        'No Drinks!'
+      )} */}
+
       <Footer />
     </div>
   );

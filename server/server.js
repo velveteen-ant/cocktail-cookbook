@@ -1,13 +1,20 @@
 const express = require('express');
 const path = require('path');
 const drinkController = require('./controllers/drinkController');
+const cors = require('cors');
 
 const app = express();
 
+app.use(cors());
+/**
+ * handle parsing request body, turns req.body into something usable, this has to come before my route handler
+ */
 const apiRouter = require('./routes/api');
 const PORT = process.env.PORT || 3000;
 // const PORT = 3000;
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 if (process.env.NODE_ENV === 'production'){
   // statically serve everything in the build folder on the route '/build'
@@ -17,12 +24,6 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
 }
-
-/**
- * handle parsing request body, turns req.body into something usable, this has to come before my route handler
- */
- app.use(express.json());
- app.use(express.urlencoded({ extended: true }));
 
  /**
  * handle requests for static files
