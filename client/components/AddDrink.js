@@ -21,7 +21,7 @@ const AddDrink = ({ onAdd }) => {
     return (
         <form className='add-drink' onSubmit={onSubmit}>
         <div className='form-control'>
-          <label>Drink: </label>
+          <label>Name: </label>
           <input type='text' placeholder='Add drink name' value={name} onChange={(e) => setName(e.target.value)}/>
         </div>
   
@@ -32,7 +32,7 @@ const AddDrink = ({ onAdd }) => {
 
         <div className='form-control'>
           <label>Rating: </label>
-          <input type='number' placeholder='Rating 0-10' value={rating} onChange={(e) => setRating(e.target.value)} />
+          <input type='number' placeholder='Rating 0-10' min={0} max={10} value={rating} onChange={(e) => setRating(e.target.value)} />
         </div>
 
         <div className='form-control'>

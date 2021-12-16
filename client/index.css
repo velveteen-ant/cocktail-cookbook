@@ -138,15 +138,53 @@ a:active {
 }
 
 .drink {
+  font-family: 'Montserrat', sans-serif;
   background: #f4f4f4;
   margin: 5px;
   padding: 10px 20px;
-  /* cursor: pointer; */
   border: 5px solid wheat;
   max-width: 50%;
 }
 
 .btn-block {
   display: block;
-  width: 100%;
+  /* background-color: rgb(45, 133, 103); */
+  background-color: #6abd4a;
+  width: 30%;
+}
+
+.add-drink {
+  margin-bottom: 40px;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+  display: block;
+}
+
+.form-control input {
+  width: 30%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 13px;
+}
+
+.no-drink {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  padding: 20px;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+}
+
+.no-drink-icon {
+  height: 20px;
+  width: auto;
+  /* color: thistle; */
+  color: black;
 }

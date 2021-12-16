@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Drinks from './components/Drinks';
 import Drink from './components/Drink';
 import AddDrink from './components/AddDrink';
+import Intro from './components/Intro';
 
 const App = () => {
   const [drinks, setDrinks] = useState([]);
@@ -23,10 +24,10 @@ const App = () => {
   }, []);
 
   //fetch drinks
-  
+
   const fetchDrinks = async () => {
     const res = await fetch('http://localhost:3000/api');
-    // console.log(res); 
+    // console.log(res);
     const data = await res.json();
     setDrinks(data);
   };
@@ -38,8 +39,8 @@ const App = () => {
       method: 'DELETE',
     });
     res.status === 200
-    ? setDrinks(drinks.filter((drink) => drink.cocktail_id !== cocktail_id))
-    : alert('Error deleting drink');
+      ? setDrinks(drinks.filter((drink) => drink.cocktail_id !== cocktail_id))
+      : alert('Error deleting drink');
     // setDrinks(data);
   };
 
@@ -50,30 +51,35 @@ const App = () => {
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify(drink)
+      body: JSON.stringify(drink),
     });
     const data = await res.json();
     setDrinks([...drinks, data]);
   };
 
-
   return (
     <div>
       <Header />
 
-      <Drinks drinks={drinks} onDelete={deleteDrink} onAdd={() => setShowAddDrink(!showAddDrink)} showAdd={showAddDrink}/>
+      <Intro />
 
+      <Drinks
+        drinks={drinks}
+        onDelete={deleteDrink}
+        onAdd={() => setShowAddDrink(!showAddDrink)}
+        showAdd={showAddDrink}
+        addDrink={addDrink}
+        showAddDrink={showAddDrink}
+      >
+        {/* {showAddDrink && <AddDrink onAdd={addDrink} />} */}
 
-      {/* {drinks.length > 0 ? (
-        <Drinks drinks={drinks} onDelete={deleteDrink} onAdd={() => setShowAddDrink(!showAddDrink)} showAdd={showAddDrink}/>
-      ) : (
-        'No Drinks!'
-      )} */}
-      
-      {showAddDrink && (
+      </Drinks>
+
+  
+            
+      {/* {showAddDrink && (
         <AddDrink onAdd={addDrink} />
-      )}
-
+      )} */}
 
       <Footer />
     </div>

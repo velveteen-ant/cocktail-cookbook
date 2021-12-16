@@ -5,7 +5,7 @@ const Drink = ({ drink, onDelete }) => {
   return (
     <div className='drink'>
       <h3>
-        Drink: {drink.name}{' '}
+        Name: {drink.name}{' '}
         <FaTimes
           style={{ color: '#ee928a', cursor: 'pointer' }}
           onClick={() => onDelete(drink.cocktail_id)}
