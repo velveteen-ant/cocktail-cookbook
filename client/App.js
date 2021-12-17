@@ -12,6 +12,8 @@ import UpdateDrink from './components/UpdateDrink';
 const App = () => {
   const [drinks, setDrinks] = useState([]);
   const [showAddDrink, setShowAddDrink] = useState(false);
+  //below is testing update
+  const [showUpdate, setShowUpdate] = useState(false);
   // useEffect(() => {
   //   const getDrinks = async () => {
   //     const drinksFromServer = await fetchDrinks();
@@ -83,9 +85,12 @@ const App = () => {
         showAdd={showAddDrink}
         addDrink={addDrink}
         showAddDrink={showAddDrink}
+        //below is testing update
+        showUpdate={showUpdate}
+        setShowUpdate={setShowUpdate}
       />
 
-      <UpdateDrink />
+      {/* <UpdateDrink /> */}
 
       <Footer />
     </div>

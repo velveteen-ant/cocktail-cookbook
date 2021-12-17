@@ -4,7 +4,8 @@ import Button from './Button';
 import { FaGlassWhiskey } from 'react-icons/fa';
 import AddDrink from './AddDrink';
 
-const Drinks = ({ drinks, onDelete, onAdd, showAdd, addDrink, showAddDrink }) => {
+const Drinks = ({ drinks, onDelete, onAdd, showAdd, addDrink, showAddDrink, showUpdate, setShowUpdate }) => {
+  //added show update
 
   return (
     <>
@@ -27,6 +28,9 @@ const Drinks = ({ drinks, onDelete, onAdd, showAdd, addDrink, showAddDrink }) =>
           key={index}
           drink={drink}
           onDelete={onDelete}
+          //adding show update
+          showUpdate={showUpdate}
+          setShowUpdate={setShowUpdate}
         />
       ))}
 
