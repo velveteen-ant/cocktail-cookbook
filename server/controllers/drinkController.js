@@ -17,24 +17,24 @@ drinkController.getDrinks = (req, res, next) => {
         });
 };
 
-drinkController.getSpecificDrink = (req, res, next) => {
-    const name = req.params.name;
-    const id = [name];
-    const text = 'SELECT * FROM cocktails WHERE name = ($1);';
+// drinkController.getSpecificDrink = (req, res, next) => {
+//     const name = req.params.name;
+//     const id = [name];
+//     const text = 'SELECT * FROM cocktails WHERE name = ($1);';
 
-    db.query(text, id)
-    .then((data) => {
-        res.locals.drink = data.rows;
-        return next();
-    })
-    .catch((err) => {
-        console.log('Error in drinkController.getSpecificDrink');
-        next({
-            log: `ERROR in drinkController.getSpecificDrink: ${err}`
-        });
-    });
+//     db.query(text, id)
+//     .then((data) => {
+//         res.locals.drink = data.rows;
+//         return next();
+//     })
+//     .catch((err) => {
+//         console.log('Error in drinkController.getSpecificDrink');
+//         next({
+//             log: `ERROR in drinkController.getSpecificDrink: ${err}`
+//         });
+//     });
 
-};
+// };
 
 drinkController.addDrink = (req, res, next) => {
 
@@ -65,13 +65,32 @@ drinkController.addDrink = (req, res, next) => {
     });
 };
 
-// drinkController.updateRating = (req, res, next) => {
-//     const name = req.params.id;
-//     const newRating = req.body
-//     const id = [name];
+drinkController.updateDrink = (req, res, next) => {
+    const drinkName = req.params.name;
+    
+    const { rating, comment } = req.body;
 
+    const id = [
+        rating,
+        comment,
+        drinkName
+    ]
+    
+    const text = 'UPDATE cocktails SET rating = ($1), comment = ($2) WHERE name = ($3);'
 
-// }
+    db.query(text, id)
+    .then(() => {
+        console.log('Successful update')
+        return next();
+    })
+    .catch((err) => {
+        console.log('Error in drinkController.updateDrink');
+        next({
+            log: `ERROR in drinkController.updateDrink: ${err}`
+        });
+    });
+
+};
 
 drinkController.deleteDrink = (req, res, next) => {
     const drinkId = req.params.id;

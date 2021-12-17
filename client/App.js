@@ -7,6 +7,7 @@ import Drinks from './components/Drinks';
 import Drink from './components/Drink';
 import AddDrink from './components/AddDrink';
 import Intro from './components/Intro';
+import UpdateDrink from './components/UpdateDrink';
 
 const App = () => {
   const [drinks, setDrinks] = useState([]);
@@ -24,7 +25,6 @@ const App = () => {
   }, []);
 
   //fetch drinks
-
   const fetchDrinks = async () => {
     const res = await fetch('http://localhost:3000/api');
     // console.log(res);
@@ -57,6 +57,19 @@ const App = () => {
     setDrinks([...drinks, data]);
   };
 
+    //update drink
+    const updateDrink = async (cocktail_id) => {
+      const res = await fetch(`http://localhost:3000/api/${cocktail_id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(drink),
+      });
+      const data = await res.json();
+      setDrinks([...drinks, data]);
+    };
+
   return (
     <div>
       <Header />
@@ -70,16 +83,9 @@ const App = () => {
         showAdd={showAddDrink}
         addDrink={addDrink}
         showAddDrink={showAddDrink}
-      >
-        {/* {showAddDrink && <AddDrink onAdd={addDrink} />} */}
+      />
 
-      </Drinks>
-
-  
-            
-      {/* {showAddDrink && (
-        <AddDrink onAdd={addDrink} />
-      )} */}
+      <UpdateDrink />
 
       <Footer />
     </div>
