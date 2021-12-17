@@ -40,6 +40,8 @@ drinkController.addDrink = (req, res, next) => {
 
     const { name, date, rating, comment } = req.body;
 
+    // console.log(req.body); 
+
     const id = [
         name,
         date,
