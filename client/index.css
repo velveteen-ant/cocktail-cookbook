@@ -199,3 +199,17 @@ a:active {
 .edit-icon {
   margin-left: 5px;
 }
+
+.update-drink {
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 5%;
+  /* max-width: 20%; */
+  /* max-height: 80%; */
+  /* margin: 20px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 8px solid steelblue;
+  padding: 30px;
+  border-radius: 5px; */
+
+}

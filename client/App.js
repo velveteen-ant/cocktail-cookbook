@@ -90,7 +90,7 @@ const App = () => {
         setShowUpdate={setShowUpdate}
       />
 
-      {/* <UpdateDrink /> */}
+      <UpdateDrink onUpdate={updateDrink}/>
 
       <Footer />
     </div>
