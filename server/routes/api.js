@@ -1,5 +1,6 @@
 const express = require('express');
 const drinkController = require('../controllers/drinkController');
+const app = require('../server');
 const router = express.Router();
 
 router.get('/', drinkController.getDrinks, (req, res) =>
@@ -15,7 +16,9 @@ router.post('/', drinkController.addDrink, (req, res) =>
 );
 
 router.patch('/', drinkController.updateDrink, (req, res) =>
-  res.status(200).send('Updated')
+  res.status(200).send({status: 'Updated'})
+  // res.status(200).send('Updated')
+
 );
 
 router.delete('/:id', drinkController.deleteDrink, (req, res) =>

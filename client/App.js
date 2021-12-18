@@ -71,6 +71,7 @@ const App = () => {
       });
       const data = await res.json();
       setDrinks([...drinks, data]);
+      window.location = "/";
     };
 
   return (
