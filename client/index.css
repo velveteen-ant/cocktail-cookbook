@@ -193,12 +193,12 @@ a:active {
 
 .delete-icon {
   align-self: right;
-  margin-left: 8px;
-}
-
-.edit-icon {
   margin-left: 5px;
 }
+
+/* .edit-icon {
+  margin-left: 5px;
+} */
 
 .update-drink {
   font-family: 'Montserrat', sans-serif;

@@ -13,7 +13,7 @@ const App = () => {
   const [drinks, setDrinks] = useState([]);
   const [showAddDrink, setShowAddDrink] = useState(false);
   //below is testing update
-  const [showUpdate, setShowUpdate] = useState(false);
+  // const [showUpdate, setShowUpdate] = useState(false);
   // useEffect(() => {
   //   const getDrinks = async () => {
   //     const drinksFromServer = await fetchDrinks();
@@ -60,8 +60,9 @@ const App = () => {
   };
 
     //update drink
-    const updateDrink = async (cocktail_id) => {
-      const res = await fetch(`http://localhost:3000/api/${cocktail_id}`, {
+    const updateDrink = async (drink) => {
+      // console.log(drink);
+      const res = await fetch('http://localhost:3000/api', {
         method: 'PATCH',
         headers: {
           'Content-type': 'application/json',
@@ -86,11 +87,15 @@ const App = () => {
         addDrink={addDrink}
         showAddDrink={showAddDrink}
         //below is testing update
-        showUpdate={showUpdate}
-        setShowUpdate={setShowUpdate}
+        // showUpdate={showUpdate}
+        // setShowUpdate={setShowUpdate}
       />
 
-      <UpdateDrink onUpdate={updateDrink}/>
+      {/* <UpdateDrink onUpdate={updateDrink}/> */}
+      {drinks.length !== 0 && <UpdateDrink onUpdate={updateDrink} />}
+
+      {/* {drinks.length === 0 && <div className='no-drink'> <FaGlassWhiskey className='no-drink-icon'/> No Drinks to Show! </div>} */}
+
 
       <Footer />
     </div>

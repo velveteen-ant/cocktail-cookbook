@@ -66,14 +66,14 @@ drinkController.addDrink = (req, res, next) => {
 };
 
 drinkController.updateDrink = (req, res, next) => {
-    const drinkName = req.params.name;
+    // const drinkName = req.params.name;
     
-    const { rating, comment } = req.body;
+    const { rating, comment, name } = req.body;
 
     const id = [
         rating,
         comment,
-        drinkName
+        name
     ]
     
     const text = 'UPDATE cocktails SET rating = ($1), comment = ($2) WHERE name = ($3);'

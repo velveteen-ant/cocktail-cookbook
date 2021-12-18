@@ -14,8 +14,8 @@ router.post('/', drinkController.addDrink, (req, res) =>
   res.status(200).json(res.locals.drinks)
 );
 
-router.patch('/:name', drinkController.updateDrink, (req, res) =>
-  res.status(200).json(res.locals.drink)
+router.patch('/', drinkController.updateDrink, (req, res) =>
+  res.status(200).send('Updated')
 );
 
 router.delete('/:id', drinkController.deleteDrink, (req, res) =>

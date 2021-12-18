@@ -2,17 +2,21 @@ import React from 'react';
 import { useState } from 'react';
 
 const UpdateDrink = ({ onUpdate }) => {
-  const [updateRating, setUpdateRating] = useState('');
-  const [updateComment, setUpdateComment] = useState('');
+  // const [updateRating, setUpdateRating] = useState('');
+  // const [updateComment, setUpdateComment] = useState('');
   const [name, setName] = useState('');
+  const [rating, setRating] = useState('')
+  const [comment, setComment] = useState('')
+
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    onUpdate({ updateRating, updateComment });
+    onUpdate({ rating, comment, name });
 
-    setUpdateRating('');
-    setUpdateComment('');
+    setRating('');
+    setComment('');
+    setName('')
   };
 
   return (
@@ -35,8 +39,8 @@ const UpdateDrink = ({ onUpdate }) => {
           placeholder='Rating 0-10'
           min={0}
           max={10}
-          value={updateRating}
-          onChange={(e) => setUpdateRating(e.target.value)}
+          value={rating}
+          onChange={(e) => setRating(e.target.value)}
         />
       </div>
 
@@ -45,8 +49,8 @@ const UpdateDrink = ({ onUpdate }) => {
         <input
           type='text'
           placeholder='Add comments'
-          value={updateComment}
-          onChange={(e) => setUpdateComment(e.target.value)}
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
         />
       </div>
 
